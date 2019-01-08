@@ -1,5 +1,17 @@
 [alias]
 
+	# You only live once
+	yolo = !git commit -a --amend -C HEAD && git push -f
+
+	# Create a topic branch on top of origin/master
+	topic = "!git fetch origin && git checkout origin/master && git checkout -b "
+
+	# Safe force-push
+	pushf = push --force-with-lease
+	
+	# Pull rebase shortcut
+	update = pull --rebase
+
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
 
