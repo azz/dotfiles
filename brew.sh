@@ -95,6 +95,17 @@ brew install ssh-copy-id
 brew install tree
 brew install vbindiff
 brew install zopfli
+brew install htop
+brew install hub
+brew install httpie
+brew install mkcert
+brew install mercurial
+brew install graphviz
+
+# Install Node.js
+brew install nvm
+nvm install --lts
+brew install yarn --without-node
 
 # Remove outdated versions from the cellar.
 brew cleanup
