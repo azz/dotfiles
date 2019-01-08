@@ -1,4 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash +x
+
+# Install homebrew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # Install command-line tools using Homebrew.
 
@@ -131,8 +134,6 @@ brew cask install virtualbox
 brew cask install vagrant
 brew cask install vagrant-manager
 
-vagrant up
-
 function add_app_to_dock {
   defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>$APP_PATH</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"
 }
@@ -152,3 +153,21 @@ xcode-select --install
 
 # Remove outdated versions from the cellar.
 brew cleanup
+
+# Install nifty npm tools
+
+yarn global add yo
+yarn global add http-server
+yarn global add tldr
+yarn global add fkill
+yarn global add castnow
+yarn global add vtop
+yarn global add create-react-app
+yarn global add ndb
+yarn global add speed-test
+yarn global add trash-cli
+yarn global add is-up-cli
+yarn global add is-online-cli
+
+# Start any boxes in ~/Vagrantfile
+vagrant up
