@@ -101,11 +101,54 @@ brew install httpie
 brew install mkcert
 brew install mercurial
 brew install graphviz
+brew install the_silver_searcher
 
 # Install Node.js
 brew install nvm
 nvm install --lts
 brew install yarn --without-node
+
+# Install Docker
+brew install docker
+brew install docker-compose
+
+# brew cask applications
+brew tap caskroom/cask
+
+brew cask install discord
+brew cask install kap
+brew cask install gimp
+brew cask install google-chrome
+brew cask install homebrew/cask-versions/google-chrome-canary
+brew cask install homebrew/cask-versions/microsoft-remote-desktop-beta
+brew cask install slack
+brew cask install spotify
+brew cask install vlc
+brew cask install wireshark
+brew cask install visual-studio-code
+brew cask install zoomus
+brew cask install virtualbox
+brew cask install vagrant
+brew cask install vagrant-manager
+
+vagrant up
+
+function add_app_to_dock {
+  defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>$APP_PATH</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"
+}
+
+add_app_to_dock "/Applications/Google Chrome.app"
+add_app_to_dock "/Applications/Google Chrome Canary.app"
+add_app_to_dock "/Applications/Slack.app"
+add_app_to_dock "/Applications/zoom.us.app"
+add_app_to_dock "/Applications/Visual Studio Code.app"
+add_app_to_dock "/Applications/Spotify.app"
+add_app_to_dock "/Applications/Utilities/Terminal.app"
+add_app_to_dock "/Applications/Utilities/Activity Monitor.app"
+killall Dock
+
+# Install XCode for make and friends
+xcode-select --install
 
 # Remove outdated versions from the cellar.
 brew cleanup
