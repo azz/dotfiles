@@ -824,6 +824,13 @@ defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false
 # cp -r init/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null
 
 ###############################################################################
+# Visual Studio Code                                                          #
+###############################################################################
+
+# Install VSCode settings
+# cp -r .vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json 2> /dev/null
+
+###############################################################################
 # Spectacle.app                                                               #
 ###############################################################################
 
