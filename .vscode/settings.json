@@ -1,0 +1,35 @@
+{
+    "projectManager.git.baseFolders": [
+        "$home/code"
+    ],
+    "extensions.autoUpdate": true,
+    "[markdown]": {
+        "editor.wordWrap": "on",
+        "editor.quickSuggestions": false
+    },
+    "prettier.eslintIntegration": false,
+    "editor.formatOnSave": true,
+    "files.eol": "\n",
+    "jest.autoEnable": false,
+    "window.zoomLevel": 0,
+    "editor.tabSize": 2,
+    "editor.minimap.enabled": false,
+    "telemetry.enableTelemetry": false,
+    "github.autoPublish": false,
+    "github.customPullRequestDescription": "gitEditor",
+    "github.upstream": "upstream",
+    "workbench.colorTheme": "Github",
+    "explorer.confirmDragAndDrop": false,
+    "workbench.activityBar.visible": false,
+    "flow.enabled": false,
+    "gitlens.keymap": "chorded",
+    "extensions.ignoreRecommendations": false,
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
+    "gitlens.historyExplorer.enabled": true,
+    "workbench.iconTheme": "vscode-great-icons",
+    "editor.parameterHints": false,
+    "arduino.path": "/Applications",
+    "gitlens.mode.active": "review"
+}
