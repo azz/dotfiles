@@ -3,7 +3,7 @@
 : "${EMAIL}"
 
 # Install homebrew
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+hash brew || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # Install command-line tools using Homebrew.
 
@@ -155,7 +155,7 @@ add_app_to_dock "/Applications/Utilities/Activity Monitor.app"
 killall Dock
 
 # Install XCode for make and friends
-xcode-select --install
+hash make || xcode-select --install
 
 # Remove outdated versions from the cellar.
 brew cleanup
@@ -181,7 +181,9 @@ if [ ! -f ~/.ssh/id_rsa ]; then
 fi
 
 # Set up GPG key
-cat <<EOF > /tmp/gpg-script
+gpg --list-keys "$EMAIL" &> /dev/null
+if [ ! $? = "0" ]; then
+  cat <<EOF > /tmp/gpg-script
 Key-Type: 1
 Key-Length: 4096
 Subkey-Type: 1
@@ -190,10 +192,11 @@ Name-Real: Lucas Azzola
 Name-Email: $EMAIL
 Expire-Date: 0
 EOF
-gpg --batch --gen-key /tmp/gpg-script
-mkdir -p ~/.gpg
-gpg --armor --export "$EMAIL" > "~/.gpg/$EMAIL.asc"
-GPG_KEY_ID=$(gpg --list-keys --with-colons "$EMAIL" | awk -F: '/^pub:/ { print $5 }')
+  gpg --batch --gen-key /tmp/gpg-script
+  mkdir -p ~/.gpg
+  gpg --armor --export "$EMAIL" > "~/.gpg/$EMAIL.asc"
+  GPG_KEY_ID=$(gpg --list-keys --with-colons "$EMAIL" | awk -F: '/^pub:/ { print $5 }')
+fi
 
 # Configure git
 git config --global user.signingkey "$GPG_KEY_ID"
@@ -203,6 +206,8 @@ git config --global user.email "$EMAIL"
 
 # Make some directories
 mkdir -p ~/code/azz
+mkdir -p ~/Downloads/Installers
+mkdir -p ~/Downloads/Artifacts
 
 # Start any boxes in ~/Vagrantfile
 vagrant up
