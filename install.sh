@@ -129,6 +129,7 @@ brew cask install homebrew/cask-versions/google-chrome-canary
 brew cask install homebrew/cask-versions/microsoft-remote-desktop-beta
 brew cask install keybase
 brew cask install slack
+brew cask install spectacle
 brew cask install spotify
 brew cask install vlc
 brew cask install visual-studio-code
