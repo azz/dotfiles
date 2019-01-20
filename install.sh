@@ -16,6 +16,9 @@ brew upgrade
 # Save Homebrew’s installed location.
 BREW_PREFIX=$(brew --prefix)
 
+# Don't attempt to update brew (again) for the rest of this session
+export HOMEBREW_NO_AUTO_UPDATE=1
+
 # Install GNU core utilities (those that come with macOS are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 brew install coreutils
