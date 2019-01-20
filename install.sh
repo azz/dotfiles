@@ -127,7 +127,9 @@ brew cask install gimp
 brew cask install google-chrome
 brew cask install homebrew/cask-versions/google-chrome-canary
 brew cask install homebrew/cask-versions/microsoft-remote-desktop-beta
+brew cask install iterm2
 brew cask install keybase
+brew cask install postman
 brew cask install slack
 brew cask install spectacle
 brew cask install spotify
@@ -143,15 +145,17 @@ function add_app_to_dock {
   defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>$APP_PATH</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"
 }
 
-add_app_to_dock "/Applications/Google Chrome.app"
+add_app_to_dock "/Applications/iTerm2.app"
+add_app_to_dock "/Applications/Utilities/Terminal.app"
+add_app_to_dock "/Applications/Utilities/Activity Monitor.app"
+add_app_to_dock "/Applications/Visual Studio Code.app"
+# add_app_to_dock "/Applications/Google Chrome.app"
 add_app_to_dock "/Applications/Google Chrome Canary.app"
 add_app_to_dock "/Applications/Slack.app"
 add_app_to_dock "/Applications/zoom.us.app"
-add_app_to_dock "/Applications/Visual Studio Code.app"
+add_app_to_dock "/Applications/Postman.app"
 add_app_to_dock "/Applications/Spotify.app"
 add_app_to_dock "/Applications/Keybase.app"
-add_app_to_dock "/Applications/Utilities/Terminal.app"
-add_app_to_dock "/Applications/Utilities/Activity Monitor.app"
 killall Dock
 
 # Install XCode for make and friends
