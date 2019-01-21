@@ -111,6 +111,7 @@ brew install mercurial
 brew install graphviz
 brew install the_silver_searcher
 brew install autojump
+brew install youtube-dl
 
 # Install Node.js
 brew install nvm
