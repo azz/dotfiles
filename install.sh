@@ -145,6 +145,9 @@ brew cask install vagrant
 brew cask install vagrant-manager
 brew cask install zoomus
 
+# Install https://github.com/sindresorhus/quick-look-plugins
+brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json webpquicklook suspicious-package quicklookase qlvideo
+
 # Install displaylink
 brew tap homebrew/cask-drivers
 brew cask install displaylink
