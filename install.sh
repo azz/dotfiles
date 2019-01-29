@@ -118,12 +118,12 @@ brew install nvm
 nvm install --lts
 brew install yarn --without-node
 
+# brew cask applications
+brew tap caskroom/cask
+
 # Install Docker
 brew cask install docker # Docker Community Edition for macOS
 # brew install docker-compose
-
-# brew cask applications
-brew tap caskroom/cask
 
 brew cask install discord
 brew cask install kap
