@@ -195,22 +195,10 @@ if [ ! -f ~/.ssh/id_rsa ]; then
   ssh-keygen -t rsa -C "$EMAIL" -P '' -f ~/.ssh/id_rsa 
 fi
 
-# Set up GPG key
-gpg --list-keys "$EMAIL" &> /dev/null
-if [ ! $? = "0" ]; then
-  cat <<EOF > /tmp/gpg-script
-Key-Type: 1
-Key-Length: 4096
-Subkey-Type: 1
-Subkey-Length: 4096
-Name-Real: Lucas Azzola
-Name-Email: $EMAIL
-Expire-Date: 0
-EOF
-  gpg --batch --gen-key /tmp/gpg-script
-  mkdir -p ~/.gpg
-  gpg --armor --export "$EMAIL" > "~/.gpg/$EMAIL.asc"
-  GPG_KEY_ID=$(gpg --list-keys --with-colons "$EMAIL" | awk -F: '/^pub:/ { print $5 }')
+# Allow authentication of 'sudo' commands with Touch ID
+if [ $(cat /etc/pam.d/sudo | grep pam_tid | wc -l) = '0' ]
+then
+  sudo gsed -i '2iauth sufficient pam_tid.so' /etc/pam.d/sudo
 fi
 
 # Configure git
